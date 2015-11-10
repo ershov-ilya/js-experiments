@@ -48,7 +48,9 @@ this
 /* 4 - зарезервированные имена React  */
 class
 extends
+static
 construct
+constructor
 =>
 __proto__
 const
