@@ -1,0 +1,3 @@
+[submodule "ReactJS"]
+	path = ReactJS
+	url = git@github.com:ershov-ilya/react.js-examples.git
