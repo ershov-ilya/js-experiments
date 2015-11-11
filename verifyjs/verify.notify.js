@@ -2400,16 +2400,24 @@ log("plugin added.");
 
     },
     phone: function(r) {
-      r.val(r.val().replace(/\D/g,''));
+        var clean=r.val().replace(/[^\d\+\(\) \-]/g,'');
+        clean=clean.replace(/\-{2,}/g,'-');
+        clean=clean.replace(/\s{2,}/g,' ');
+      r.val(clean);
       var v = r.val();
-      if(!v.match(/^\+?[\d\s]+$/))
-        return "Use digits and spaces only";
-      if(v.match(/^\+/))
-        return true; //allow all international
-      if(!v.match(/^0/))
-        return "Number must start with 0";
-      if(v.replace(/\s/g,"").length !== 10)
-        return "Must be 10 digits long";
+        console.log(v);
+      if(!v.match(/^\+?[\d\(\)\s \-]+$/))
+        return "Используйте только цифры, скобки, дефисы и пробелы";
+      //if(v.match(/^\+/))
+      //  return true; //allow all international
+      if(!v.match(/^(\+|8|49)/))
+        return "Номер должен начинаться с +(код) или 8";
+        var length=v.replace(/\D/g,"").length;
+      if(length < 10 || length > 13)
+        return "Номер должен состоять из 10-13 цифр";
+        alert("OK");
+        r.val(r.val().replace(/\D/g,''));
+        return false;
       return true;
     },
     size: function(r){
