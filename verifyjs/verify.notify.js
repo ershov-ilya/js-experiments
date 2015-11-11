@@ -2291,35 +2291,35 @@ log("plugin added.");
      */
     currency: {
       regex: /^\-?\$?\d{1,2}(,?\d{3})*(\.\d+)?$/,
-      message: "Invalid monetary value"
+      message: "Неверный денежный формат"
     },
     email: {
       regex: /^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      message: "Invalid email address"
+      message: "Некорректный email адрес"
     },
     url: {
       regex: /^https?:\/\/[\-A-Za-z0-9+&@#\/%?=~_|!:,.;]*[\-A-Za-z0-9+&@#\/%=~_|]/,
-      message: "Invalid URL"
+      message: "Некорректный  URL"
     },
     alphanumeric: {
       regex: /^[0-9A-Za-z]+$/,
-      message: "Use digits and letters only"
+      message: "Используйте только цифры и буквы"
     },
     street_number: {
       regex: /^\d+[A-Za-z]?(-\d+)?[A-Za-z]?$/,
-      message: "Street Number only"
+      message: "Только название улицы и цифры"
     },
     number: {
       regex: /^\d+$/,
-      message: "Use digits only"
+      message: "Используйте только цифры"
     },
     numberSpace: {
       regex: /^[\d\ ]+$/,
-      message: "Use digits and spaces only"
+      message: "Только цифры и пробелы"
     },
     postcode: {
       regex: /^\d{4}$/,
-      message: "Invalid postcode"
+      message: "Некорректный почтовый индекс"
     },
     date: {
       fn: function(r) {
@@ -2327,7 +2327,7 @@ log("plugin added.");
           return true;
         return r.message;
       },
-      message: "Invalid date"
+      message: "Некорректная дата"
     },
     required: {
 
@@ -2365,9 +2365,9 @@ log("plugin added.");
         return true;
       },
       messages: {
-        "all": "This field is required",
-        "multiple": "Please select an option",
-        "single": "This checkbox is required"
+        "all": "Все поля обязательны",
+        "multiple": "Пожалуйста сделайте выбор",
+        "single": "Этот чекбокс обязателен"
       }
     },
     regex: {
@@ -2385,7 +2385,7 @@ log("plugin added.");
           return r.args[1] || r.message;
         return true;
       },
-      message: "Invalid format"
+      message: "Некорректный формат"
     },
     //an alias
     pattern: {
@@ -2522,14 +2522,14 @@ log("plugin added.");
 
       var startDate = $.verify.utils.parseDate(start.val());
       if(!startDate)
-        return "Invalid Start Date";
+        return "Некорректная дата От";
 
       var endDate = $.verify.utils.parseDate(end.val());
       if(!endDate)
-        return "Invalid End Date";
+        return "Некорректная дата до";
 
       if(startDate >= endDate)
-        return "Start Date must come before End Date";
+        return "Дата от должна быть быть раньше даты До";
 
       return true;
     },
